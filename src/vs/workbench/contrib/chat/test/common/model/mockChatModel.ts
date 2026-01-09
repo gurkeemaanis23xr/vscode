@@ -37,7 +37,7 @@ export class MockChatModel extends Disposable implements IChatModel {
 		toJSON: () => undefined
 	};
 	readonly contributedChatSession = undefined;
-	readonly repoData: IExportableRepoData | undefined = undefined;
+	repoData: IExportableRepoData | undefined = undefined;
 	isDisposed = false;
 	lastRequestObs: IObservable<IChatRequestModel | undefined>;
 
@@ -58,7 +58,7 @@ export class MockChatModel extends Disposable implements IChatModel {
 	startEditingSession(isGlobalEditingSession?: boolean, transferFromSession?: IChatEditingSession): void { }
 	getRequests(): IChatRequestModel[] { return []; }
 	setCheckpoint(requestId: string | undefined): void { }
-	setRepoData(data: IExportableRepoData | undefined): void { }
+	setRepoData(data: IExportableRepoData | undefined): void { this.repoData = data; }
 	toExport(): IExportableChatData {
 		return {
 			initialLocation: this.initialLocation,
@@ -77,7 +77,8 @@ export class MockChatModel extends Disposable implements IChatModel {
 			initialLocation: this.initialLocation,
 			requests: [],
 			responderUsername: '',
-			responderAvatarIconUri: undefined
+			responderAvatarIconUri: undefined,
+			repoData: this.repoData
 		};
 	}
 }
