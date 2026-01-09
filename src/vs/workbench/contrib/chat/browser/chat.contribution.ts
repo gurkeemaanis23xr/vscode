@@ -132,6 +132,7 @@ import { ConfigureToolSets, UserToolSetsContributions } from './tools/toolSetsCo
 import { ChatViewsWelcomeHandler } from './viewsWelcome/chatViewsWelcomeHandler.js';
 import { ChatWidgetService } from './widget/chatWidgetService.js';
 import { ChatWindowNotifier } from './chatWindowNotifier.js';
+import { ChatRepoInfoContribution } from './chatRepoInfo.js';
 
 const toolReferenceNameEnumValues: string[] = [];
 const toolReferenceNameEnumDescriptions: string[] = [];
@@ -1199,6 +1200,7 @@ registerWorkbenchContribution2(ChatEditingNotebookFileSystemProviderContrib.ID, 
 registerWorkbenchContribution2(UserToolSetsContributions.ID, UserToolSetsContributions, WorkbenchPhase.Eventually);
 registerWorkbenchContribution2(PromptLanguageFeaturesProvider.ID, PromptLanguageFeaturesProvider, WorkbenchPhase.Eventually);
 registerWorkbenchContribution2(ChatWindowNotifier.ID, ChatWindowNotifier, WorkbenchPhase.AfterRestored);
+registerWorkbenchContribution2(ChatRepoInfoContribution.ID, ChatRepoInfoContribution, WorkbenchPhase.BlockStartup);
 
 registerChatActions();
 registerChatAccessibilityActions();
